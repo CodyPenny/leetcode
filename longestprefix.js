@@ -46,7 +46,27 @@ const findcommonprefix = function (str1, str2) {
   return '';
 };
 
+
 /* Success
 Details 
 Runtime: 76 ms, faster than 90.84% of JavaScript online submissions for Longest Common Prefix.
 Memory Usage: 38.3 MB, less than 11.86% of JavaScript online submissions for Longest Common Prefix.*/
+
+const verticalScan = (strs) => {
+  if (!strs || strs.length == 0) return '';
+
+  for (let i = 0; i < strs[0].length; i++) {
+    let char = strs[0].charAt(i);
+    for (let j = 1; j < strs.length; j++) {
+      if (strs[j].charAt(i) !== char) {
+        return strs[0].slice(0, i);
+      }
+    }
+  }
+  return strs[0];
+}
+
+/* Success
+Details 
+Runtime: 96 ms, faster than 23.63% of JavaScript online submissions for Longest Common Prefix.
+Memory Usage: 39.8 MB, less than 11.86% of JavaScript online submissions for Longest Common Prefix. */
