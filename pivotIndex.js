@@ -7,7 +7,6 @@ If no such index exists, we should return -1. If there are multiple pivot indexe
 var pivotIndex = function (nums) {
   const sum = nums.reduce((acc, curr) => acc + curr, 0);
   let leftsum = 0;
-
   for (let i = 0; i < nums.length; i++) {
     if (leftsum === sum - (leftsum + nums[i])) {
       return i;
