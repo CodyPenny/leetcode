@@ -23,3 +23,26 @@ var dominantIndex = function (nums) {
 Status: Accepted
 Runtime: 80 ms
 Memory Usage: 38.9 MB */
+
+function twoNumberSum(array, targetSum) {
+  // Write your code here.
+	let set = new Set();
+	let result = [];
+	
+	for (const number of array) {
+		let otherNumber = targetSum - number;
+		if(set.has(otherNumber)){
+			result.push(otherNumber, number);
+			set.delete(otherNumber);
+		} else {
+			set.add(number);
+		}
+	}
+	return result;
+}
+
+/*
+A function that takes in a non-empty array of distinct integers and an integer representing a target sum.
+
+passes tests
+*/
