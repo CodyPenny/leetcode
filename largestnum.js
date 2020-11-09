@@ -75,3 +75,22 @@ let testarray = [5, 1, 22, 25, 6, -1, 8, 10];
 let seq = [1, 6, -1, 10];
 isValidSubsequence(testarray, seq)
 // 23 / 23 test cases passed.
+
+function isValidSubsequenceTwo(array, sequence) {
+  let sequenceIndex = 0;
+  for (const value of array){
+    if(sequenceIndex === sequenceIndex.length) break;
+    if(sequence[sequenceIndex] === value) sequenceIndex++;
+  }
+  return sequenceIndex === sequence.length;
+}
+
+function isValidSubsequenceThree(array, sequence) {
+  let sequenceIndex = 0;
+  let arrayIndex = 0;
+  while(arrayIndex < array.length && sequenceIndex < sequence.length){
+    if(sequence[sequenceIndex] === array[arrayIndex]) sequenceIndex++;
+    arrayIndex++;
+  }
+  return sequenceIndex === sequence.length;
+}
