@@ -46,3 +46,32 @@ A function that takes in a non-empty array of distinct integers and an integer r
 
 passes tests
 */
+
+function isValidSubsequence(array, sequence) {
+  // Write your code here.
+  if(sequence.length > array.length) return false
+	let arr = [];
+	let index;
+	for(let i = 0; i < sequence.length; i++) {
+		index = array.indexOf(sequence[i])
+		if(index === -1) return false 
+		arr.push(index);
+		array.splice(index, 1);
+  };
+
+	if(arr.length){
+    for (let i = 0; i < arr.length - 1; i++){
+      if(arr[i] > arr[i+1]) {
+        return false
+      }
+    }
+    return true;
+	}
+	return false
+}
+}
+
+let testarray = [5, 1, 22, 25, 6, -1, 8, 10];
+let seq = [1, 6, -1, 10];
+isValidSubsequence(testarray, seq)
+// 23 / 23 test cases passed.
