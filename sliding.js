@@ -51,3 +51,22 @@ function max_sum (arr, k) {
 
 //time complexity of the above algorithm will be O(N) and constant space O(1)
 
+/* Given an array of positive numbers and a positive number ‘S,’ find the length of the smallest contiguous subarray whose sum is greater than or equal to ‘S’. Return 0 if no such subarray exists. */
+
+function smallest_subarray(arr, s){
+  let min = arr.length;
+  let sum = 0;
+  let j = 0;
+    for (i = 0; i < arr.length; i++){
+      sum += arr[i];
+        while(sum >= s){
+          min = Math.min(min, i - j + 1);
+          sum -= arr[j]
+          j++;
+        }
+      
+    }
+  return min === arr.length ? 0 : min
+}
+
+console.log(smallest_subarray([2, 1, 5, 2, 3, 2], 7))
